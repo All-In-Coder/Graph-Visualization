@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-------------------------------------------------------------------------------------->
+    <style>
+      nav {
+        display: flex;
+      }
+      li {
+        list-style-type: none;
+        padding-left: 26px;
+        margin-top: 20px;
+        padding-bottom: 18px;
+        font-size: 22px;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      nav {
+        margin-left: 485px;
+      }
+      .logo {
+      }
+      .nav-bar {
+        background-color: black;
+        margin-top: -8px;
+        margin-left: -8px;
+        margin-right: -8px;
+      }
+
+      .card {
+        display: inline-block;
+        width: 672px;
+        border: 8px solid black;
+        margin-right: 80px;
+        height: 446px;
+        margin-top: 21px;
+        margin-left: 1px;
+      }
+      .card img {
+        position: relative;
+        width: 471px;
+      }
+      a:hover {
+        text-decoration: none;
+        color: brown;
+      }
+      .show {
+        font-size: 30px;
+        color: chocolate;
+        font-weight: bold;
+        margin-left: -1px;
+        padding-left: 6px;
+      }
+    </style>
+
+    <!-- <----------------------------------------------------------------------------->
+  </head>
+  <body>
+    <div class="nav-bar">
+      <nav>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/previous"> Previous Graph</a></li>
+        <li><a href="/draw"> Draw</a></li>
+      </nav>
+    </div>
+
+    <div class="card">
+      {% if check %} {% for graph in build %}
+      <span class="show">{{graph}} &rarr; </span>
+
+      {% endfor %} {% endif %}
+
+      <img src="{{url_for('static', filename=fileName)}}" alt="{{fileName}}" />
+    </div>
+  </body>
+</html>

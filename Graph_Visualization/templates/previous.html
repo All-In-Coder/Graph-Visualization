@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <!-------------------------------------------------------------------------------------->
+    <style>
+      nav {
+        display: flex;
+      }
+      li {
+        list-style-type: none;
+        padding-left: 26px;
+        margin-top: 20px;
+        padding-bottom: 18px;
+        font-size: 22px;
+        text-decoration: brown;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      a:hover{
+        text-decoration: none;
+        color:brown;
+      }
+      nav {
+        margin-left: 485px;
+      }
+      .logo {
+      }
+      .nav-bar {
+        background-color: black;
+        margin-top: -8px;
+        margin-left: -8px;
+        margin-right: -8px;
+      }
+      img {
+        display: flexbox;
+      }
+      .card {
+        display: inline-block;
+        width: 672px;
+        border: 8px solid black;
+        margin-right: 80px;
+        height: 446px;
+        margin-top: 21px;
+        margin-left: 1px;
+      }
+      .card img {
+        position: relative;
+        width: 471px;
+      }
+      .show {
+        font-size: 30px;
+        color: chocolate;
+        font-weight: bold;
+        margin-left: -1px;
+        padding-left: 6px;
+      }
+     
+    </style>
+
+    <!-- <----------------------------------------------------------------------------->
+  </head>
+  <body>
+    <div class="nav-bar">
+      <nav>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/previous"> Previous Graph</a></li>
+        <li><a href="/draw"> Draw</a></li>
+      </nav>
+    </div>
+    {% if error %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>{{error}}</strong>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %} {% for image in images %}
+    <div class="card">
+      <p class="show">{{image[7:]}} </p>
+      <img src="{{url_for('static', filename=image)}}" alt="{{image}}" />
+    </div>
+
+    {% endfor %}
+  </body>
+ 
+</html>
